@@ -2,6 +2,8 @@
 
 ## Step 1: Data Exploration
 
+Checkout [ce_data_explore.ipynb](./ce_data_explore.ipynb).
+
 My objective of this visualization is to provide an intuitive perception of 
 how the some aspects of employment (maybe more interested in Information Technology 
 related fields) have been changing over time. The dataset that I will depend 
