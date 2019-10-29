@@ -2,7 +2,7 @@
 
 ## Step 1: Data Exploration
 
-Checkout [ce_data_explore.ipynb](./ce_data_explore.ipynb).
+Checkout [ce_data_explore.ipynb](https://nbviewer.jupyter.org/github/wenoptics/ce-dataset-exploration-and-visualization/blob/7877720933ad65e3b38c122b7d960d501b1eca10/ce_data_explore.ipynb).
 
 My objective of this visualization is to provide an intuitive perception of 
 how the some aspects of employment (maybe more interested in Information Technology 
