@@ -15,7 +15,7 @@ understand the dataset. This notebook exposes these steps...
 
 ## Step 2:
 
-A visualization of _1998-2018 Employment Growth Rate in the United States in 6 Industries_ 
+A visualization of [_1998-2018 Employment Growth Rate in the United States in 6 Industries_ ](https://nbviewer.jupyter.org/github/wenoptics/ce-dataset-exploration-and-visualization/blob/7877720933ad65e3b38c122b7d960d501b1eca10/ce_data_explore.ipynb#6.4-Polish-the-Plots-(Completed-Section-for-Assignment-1))
 
 ![](doc/preview_0.png)
 
