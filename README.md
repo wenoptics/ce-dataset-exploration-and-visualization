@@ -1,6 +1,6 @@
-# Exploring the CE Dataset
+# Exploring the Employment-Related Dataset
 
-## Step 1: Data Exploration
+## Overview
 
 Checkout [ce_data_explore.ipynb](https://nbviewer.jupyter.org/github/wenoptics/ce-dataset-exploration-and-visualization/blob/7877720933ad65e3b38c122b7d960d501b1eca10/ce_data_explore.ipynb).
 
@@ -13,7 +13,12 @@ provided by Current Employment Statistics (CES).
 For the purpose of the visualization, I would have to explore around the data, 
 understand the dataset. This notebook exposes these steps...
 
-## Step 2:
+Also checkout [oes_data.ipynb](./oes_data.ipynb), which focus on occupation data instead of 
+industry data.
+
+## Some Results:
+
+### Employment Growth Rate in 6 Industries
 
 A visualization of [_1998-2018 Employment Growth Rate in the United States in 6 Industries_ ](https://nbviewer.jupyter.org/github/wenoptics/ce-dataset-exploration-and-visualization/blob/7877720933ad65e3b38c122b7d960d501b1eca10/ce_data_explore.ipynb#6.4-Polish-the-Plots-(Completed-Section-for-Assignment-1))
 
@@ -42,3 +47,14 @@ _Education and health services_ has better resistance against the 2018 Financial
 > Dataset: 
 > **National Employment, Hours, and Earnings** [(link to Kaggle)](https://www.kaggle.com/bls/employment#ce.series.csv) provided by _Current Employment Statistics (CES).
 
+### Computer & Math related Occupation Income in the US
+
+![](doc/out-assignment2.png)
+
+> **Comments:**
+>
+> This visualization takes data from OES 2018, showing a vivid result of how the occupation of Computer and Math related jobs are compensated across the U.S. The main figure (upper-left) shows the occupations of each individual 
+U.S. counties. The upper-right figure shows the distribution of each income (median) ranges, in both logarithm (bar) and based-10 (line), which also served as a color legend. The lower left figure shows the counties ranking by wage data. And last but not the least the lower-right figure shows an enlarged map of the Pennsylvania counties data.
+>
+> **Improvement:**
+> - Add stick for representing the data distributions of each ranked counties
