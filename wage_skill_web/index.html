@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>H1B Wage Skill</title>
+    <style>
+        html, body, figure {
+            margin: 0;
+        }
+
+        #svg_fig {
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+<figure>
+    <!--    <figcaption>HTML interaction dev</figcaption>-->
+    <object style="opacity: 0" id='svg_fig' type="image/svg+xml" data="res/out.svg"></object>
+</figure>
+
+<script src="res/js/snap.svg.js"></script>
+<script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js"></script>
+
+<script>
+    // console.log($("#svg_fig").find('#text_26'))
+    // var svg = Snap("#svg_fig");
+    const COLOR_BG_HIGHLIGHT_OVER = '#f9c39530';
+    const ALPHA_OVER = 1;
+    const ALPHA_LEAVE = 0.7;
+    let ax_left = [], ax_right = [];
+    let ax_left_el = [], ax_right_el = [];
+    let ax_right_label = [];
+
+    function show_label_text($texts) {
+        anime({
+            targets: $texts.toArray(),
+            // translateY: [-10, 0],
+            opacity: [0, 1],
+            delay: anime.stagger(50),
+        });
+    }
+    function hide_label_text($texts) {
+        anime({
+            targets: $texts.toArray(),
+            // translateY: [0, -10],
+            opacity: [1, 0],
+            delay: anime.stagger(50),
+        });
+    }
+    function show_wavy_anim(idx) {
+        anime({
+            targets: ax_left[idx].find('g[id^=PolyCollection_]').toArray(),
+            translateY: [-1, 0],
+            // easing: 'linear'
+        });
+    }
+
+    window.addEventListener('load', function () {
+        let $doc_svg = $(document.getElementById('svg_fig').contentDocument);
+
+        for (let i = 1; i <= 18; i++) {
+            // console.log(i, $doc_svg.find('#axes_'+i));
+            let $el = $doc_svg.find('#axes_'+i);
+            if (i % 2 === 1) {
+                ax_left.push($el);
+                ax_left_el.push($el.get(0));
+
+                $el.find('g[id^=PolyCollection_]:nth-child(1)').css('transform-origin', 'bottom');
+                $el.find('g[id^=PolyCollection_]:nth-child(2)').css('transform-origin', 'top');
+
+            } else {
+                ax_right.push($el);
+                ax_right_el.push($el.get(0));
+
+                // Initial state
+                $el.css('opacity', ALPHA_LEAVE);
+                // Off all the texts label
+                let $sec_texts = $el.find('>g[id^=text_]');
+                ax_right_label.push($sec_texts);
+                $sec_texts.css('opacity', 0);
+                $sec_texts.css('transition', 'all 250ms');
+
+            }
+
+            // $el.css('transition', 'all 500ms');
+            $el.data('index', parseInt((i+1)/2)-1);
+            // console.log($el.data('index'));
+
+            // Mouse over effects
+            $el.hover(function (e) {
+                let idx = $(this).data('index');
+                ax_left[idx].css('opacity', ALPHA_OVER);
+                ax_right[idx].css('opacity', ALPHA_OVER);
+                show_label_text( ax_right_label[idx] );
+                show_wavy_anim(idx);
+            }, function (e) {
+                let idx = $(this).data('index');
+                ax_left[idx].css('opacity', ALPHA_LEAVE);
+                ax_right[idx].css('opacity', ALPHA_LEAVE);
+                hide_label_text( ax_right_label[idx] );
+            });
+        }
+
+        $('#svg_fig').css('opacity', 1);
+
+        anime({
+            targets: ax_left_el,
+            translateX: [-300, 0],
+            opacity: [0, ALPHA_LEAVE],
+            delay: anime.stagger(100), // increase delay by 100ms for each elements.
+            complete: function () {
+                // Enable the transition for interaction effects
+                for (let i = 0; i < ax_left.length; i++) {
+                    ax_left[i].css('transition', 'all 500ms');
+                }
+                for (let i = 0; i < ax_right.length; i++) {
+                    ax_right[i].css('transition', 'all 500ms');
+                }
+            }
+        });
+
+        for (let ri = 0; ri < ax_right.length; ri++) {
+            anime({
+                targets: ax_right[ri].find('g[id^=patch_]').toArray(),
+                translateX: [-20, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(15), // increase delay by 100ms for each elements.
+            });
+
+        }
+
+        // for (let i = 0; i < ax_left.length; i++) {
+        //     ax_left[i]
+        //         .find('g[id^=patch_]')
+        //         .find('path').css('fill', 'eee');
+        // }
+    })
+
+
+</script>
+
+</body>
+</html>
