@@ -18,6 +18,14 @@ industry data.
 
 ## Some Results:
 
+### Employment • Wage • Skill
+
+A plot tries to answer the questions related H-1B workers skills.
+
+![](doc/h1b-viz.gif)
+
+(See [Employment • Wage • Skill](https://wenoptics.github.io/ce-dataset-exploration-and-visualization/wage_skill_web/index_3x.html))
+
 ### Employment Growth Rate in 6 Industries
 
 A visualization of [_1998-2018 Employment Growth Rate in the United States in 6 Industries_ ](https://nbviewer.jupyter.org/github/wenoptics/ce-dataset-exploration-and-visualization/blob/7877720933ad65e3b38c122b7d960d501b1eca10/ce_data_explore.ipynb#6.4-Polish-the-Plots-(Completed-Section-for-Assignment-1))
